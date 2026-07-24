@@ -12,10 +12,21 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <audio id="siteMusic" src="site-music.mp3" preload="auto" loop></audio>
+
   <a class="skip-link" href="#main">Skip opening</a>
 
   <div id="intro" class="intro" aria-label="Opening animation: three eras of Jew-hatred">
-    <div class="liquid-underlay" aria-hidden="true"></div>
+    <div class="liquid-underlay" aria-hidden="true">
+      <div class="under-page propaganda-page">
+        <div class="propaganda-collage">
+          <figure class="propaganda-card propaganda-card-1"><img src="propaganda-1.jpg" alt="" /></figure>
+          <figure class="propaganda-card propaganda-card-2"><img src="propaganda-2.jpg" alt="" /></figure>
+          <figure class="propaganda-card propaganda-card-3"><img src="propaganda-3.jpg" alt="" /></figure>
+        </div>
+        <div class="propaganda-wash"></div>
+      </div>
+    </div>
     <svg class="liquid-overlay" aria-hidden="true" viewBox="0 0 1000 1000" preserveAspectRatio="none">
       <defs>
         <linearGradient id="veilSheen" x1="0" y1="0" x2="1" y2="1">
@@ -30,19 +41,23 @@
           <stop offset="100%" stop-color="#0d1117"/>
         </linearGradient>
         <filter id="liquidGoo" x="-30%" y="-30%" width="160%" height="160%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="24" result="blur"/>
+          <feGaussianBlur in="SourceGraphic" stdDeviation="22" result="blur"/>
           <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -10" result="goo"/>
         </filter>
         <mask id="liquidRevealMask" maskUnits="userSpaceOnUse">
           <rect width="1000" height="1000" fill="white"/>
           <g id="liquidBlobGroup" filter="url(#liquidGoo)" fill="black">
-            <circle class="liquid-blob" id="blob0" cx="620" cy="520" r="132"/>
-            <circle class="liquid-blob" id="blob1" cx="575" cy="505" r="82"/>
-            <circle class="liquid-blob" id="blob2" cx="540" cy="540" r="68"/>
-            <circle class="liquid-blob" id="blob3" cx="690" cy="560" r="58"/>
-            <circle class="liquid-blob" id="blob4" cx="650" cy="450" r="46"/>
-            <circle class="liquid-blob" id="blob5" cx="760" cy="515" r="40"/>
-            <circle class="liquid-blob" id="blob6" cx="495" cy="470" r="34"/>
+            <circle class="liquid-blob" id="blob0" cx="670" cy="510" r="98"/>
+            <circle class="liquid-blob" id="blob1" cx="620" cy="507" r="84"/>
+            <circle class="liquid-blob" id="blob2" cx="570" cy="504" r="72"/>
+            <circle class="liquid-blob" id="blob3" cx="518" cy="503" r="60"/>
+            <circle class="liquid-blob" id="blob4" cx="468" cy="500" r="52"/>
+            <circle class="liquid-blob" id="blob5" cx="420" cy="500" r="46"/>
+            <circle class="liquid-blob" id="blob6" cx="376" cy="499" r="40"/>
+            <circle class="liquid-blob" id="blob7" cx="336" cy="497" r="35"/>
+            <circle class="liquid-blob" id="blob8" cx="300" cy="494" r="30"/>
+            <circle class="liquid-blob" id="blob9" cx="268" cy="492" r="26"/>
+            <circle class="liquid-blob" id="blob10" cx="706" cy="540" r="54"/>
           </g>
         </mask>
       </defs>
@@ -61,6 +76,8 @@
     <div class="light-rake" aria-hidden="true"></div>
 
     <button id="skipIntro" class="skip-intro" type="button">Skip</button>
+    <button id="musicToggle" class="music-toggle" type="button" aria-label="Start or stop music" aria-pressed="false">Music</button>
+
 
     <section class="tree-stage" aria-labelledby="intro-root">
       <div class="root-wrap">
@@ -118,6 +135,88 @@
   </header>
 
   <main id="main" tabindex="-1">
+    <section class="page-stack-stage" aria-label="Current Stop Antizionism website pages">
+      <div class="stack-copy">
+        <p class="eyebrow">Current site structure</p>
+        <h1>STOP ANTIZIONISM</h1>
+        <p>After the opening, the site resolves into the current Stop Antizionism page set. Each sliver is a page tab.</p>
+      </div>
+      <div class="page-stack" role="list">
+        <a class="page-tab page-tab-1" role="listitem" href="#" aria-label="Home">
+          <span class="tab-vertical">HOME</span>
+          <span class="tab-full">Home</span>
+        </a>
+        <a class="page-tab page-tab-2" role="listitem" href="#" aria-label="About">
+          <span class="tab-vertical">ABOUT</span>
+          <span class="tab-full">About</span>
+        </a>
+        <a class="page-tab page-tab-3" role="listitem" href="#" aria-label="Vision Statement">
+          <span class="tab-vertical">VISION</span>
+          <span class="tab-full">Vision Statement</span>
+        </a>
+        <a class="page-tab page-tab-4" role="listitem" href="#" aria-label="Team/Partners">
+          <span class="tab-vertical">TEAM</span>
+          <span class="tab-full">Team/Partners</span>
+        </a>
+        <a class="page-tab page-tab-5" role="listitem" href="#" aria-label="Education & Training">
+          <span class="tab-vertical">EDUCATION</span>
+          <span class="tab-full">Education & Training</span>
+        </a>
+        <a class="page-tab page-tab-6" role="listitem" href="#" aria-label="StopAZ Certificate Program">
+          <span class="tab-vertical">CERTIFICATE</span>
+          <span class="tab-full">StopAZ Certificate Program</span>
+        </a>
+        <a class="page-tab page-tab-7" role="listitem" href="#" aria-label="Declaration">
+          <span class="tab-vertical">DECLARATION</span>
+          <span class="tab-full">Declaration</span>
+        </a>
+        <a class="page-tab page-tab-8" role="listitem" href="#" aria-label="Support&Partner">
+          <span class="tab-vertical">SUPPORT</span>
+          <span class="tab-full">Support&Partner</span>
+        </a>
+        <a class="page-tab page-tab-9" role="listitem" href="#" aria-label="SocialMedia">
+          <span class="tab-vertical">SOCIAL</span>
+          <span class="tab-full">SocialMedia</span>
+        </a>
+        <a class="page-tab page-tab-10" role="listitem" href="#" aria-label="Survey-Background">
+          <span class="tab-vertical">SURVEY</span>
+          <span class="tab-full">Survey-Background</span>
+        </a>
+        <a class="page-tab page-tab-11" role="listitem" href="#" aria-label="Survey-Thank-You">
+          <span class="tab-vertical">THANK-YOU</span>
+          <span class="tab-full">Survey-Thank-You</span>
+        </a>
+        <a class="page-tab page-tab-12" role="listitem" href="#" aria-label="Marketplace">
+          <span class="tab-vertical">MARKET</span>
+          <span class="tab-full">Marketplace</span>
+        </a>
+        <a class="page-tab page-tab-13" role="listitem" href="#" aria-label="LEARN">
+          <span class="tab-vertical">LEARN</span>
+          <span class="tab-full">LEARN</span>
+        </a>
+        <a class="page-tab page-tab-14" role="listitem" href="#" aria-label="LEAD">
+          <span class="tab-vertical">LEAD</span>
+          <span class="tab-full">LEAD</span>
+        </a>
+        <a class="page-tab page-tab-15" role="listitem" href="#" aria-label="ACT">
+          <span class="tab-vertical">ACT</span>
+          <span class="tab-full">ACT</span>
+        </a>
+        <a class="page-tab page-tab-16" role="listitem" href="#" aria-label="World Symposium on Antizionism">
+          <span class="tab-vertical">SYMPOSIUM</span>
+          <span class="tab-full">World Symposium on Antizionism</span>
+        </a>
+        <a class="page-tab page-tab-17" role="listitem" href="#" aria-label="Donate">
+          <span class="tab-vertical">DONATE</span>
+          <span class="tab-full">Donate</span>
+        </a>
+        <a class="page-tab page-tab-18" role="listitem" href="#" aria-label="Get Involved">
+          <span class="tab-vertical">INVOLVED</span>
+          <span class="tab-full">Get Involved</span>
+        </a>
+      </div>
+    </section>
+
     <section class="hero section-shell">
       <div class="hero-copy">
         <p class="eyebrow">Three eras. One pattern.</p>
