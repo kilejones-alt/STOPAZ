@@ -41,4 +41,4 @@ Version note: v10 attempts to start music on first cursor movement, first click/
 Version note: v11 adds the actual two-phase intro behavior: after the three boxes appear, the camera state zooms into ANTIZIONISM first, then STOP / ANTIZIONISM appears. It also tightens the hover reveal so Soviet propaganda is visible only under the cursor area.
 
 
-Version note: v13 doubles the cursor/water reveal area so more of the Soviet under-layer is visible while still remaining cursor-linked.
+Version note: v15 fixes the broken v14 single-file build by restoring valid separate index/style/app files and a valid single-file preview. It keeps the bigger water reveal and artsy parallax screen layers.

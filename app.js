@@ -202,4 +202,15 @@
       });
     });
   }
+
+  function updatePageParallax(event) {
+    const x = (event.clientX / window.innerWidth - 0.5) * 100;
+    const y = (event.clientY / window.innerHeight - 0.5) * 100;
+    document.documentElement.style.setProperty('--px', `${x.toFixed(2)}px`);
+    document.documentElement.style.setProperty('--py', `${y.toFixed(2)}px`);
+  }
+
+  document.addEventListener('pointermove', updatePageParallax, { passive: true });
+  document.addEventListener('mousemove', updatePageParallax, { passive: true });
+
 })();
