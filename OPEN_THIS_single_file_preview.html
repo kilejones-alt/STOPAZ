@@ -1076,6 +1076,227 @@ body.site-open .page-tab-18 { --x: 385px; --y: 55px; --r: 13.2deg; }
   .liquid-overlay { display: none; }
 }
 
+
+
+/* v14 artsy layered-screen parallax page stack */
+.screen-parallax-stage {
+  position: relative;
+  isolation: isolate;
+  grid-template-columns: minmax(260px, 0.68fr) minmax(560px, 1.32fr);
+  background:
+    radial-gradient(circle at calc(72% + var(--px, 0px) * .03) calc(35% + var(--py, 0px) * .03), rgba(144,215,255,0.12), transparent 30rem),
+    radial-gradient(circle at 20% 70%, rgba(255,255,255,0.04), transparent 26rem),
+    linear-gradient(180deg, rgba(255,255,255,0.035), rgba(255,255,255,0.005));
+}
+.screen-parallax-stage::before {
+  content: "";
+  position: absolute;
+  inset: 7% 4%;
+  z-index: -1;
+  background:
+    linear-gradient(115deg, transparent 22%, rgba(144,215,255,0.055) 47%, transparent 72%),
+    linear-gradient(70deg, transparent 38%, rgba(255,255,255,0.035) 50%, transparent 62%);
+  filter: blur(2px);
+  transform: translate3d(calc(var(--px, 0px) * -.018), calc(var(--py, 0px) * -.012), 0);
+}
+.screen-parallax {
+  position: relative;
+  min-height: min(680px, 82vh);
+  perspective: 1800px;
+  transform-style: preserve-3d;
+}
+.screen-card {
+  --i: 0;
+  --spread: 0px;
+  --lift: 0px;
+  --rot: 0deg;
+  --depth: 0px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(640px, 58vw);
+  height: min(430px, 58vh);
+  border-radius: 28px;
+  border: 1px solid rgba(230,240,255,0.15);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.135), rgba(255,255,255,0.028) 42%, rgba(144,215,255,0.045)),
+    rgba(10,14,21,0.78);
+  box-shadow:
+    0 42px 110px rgba(0,0,0,0.46),
+    inset 0 1px 0 rgba(255,255,255,0.11),
+    inset 0 -1px 0 rgba(255,255,255,0.035);
+  color: var(--text);
+  text-decoration: none;
+  overflow: hidden;
+  opacity: 0;
+  transform:
+    translate(-50%, -50%)
+    translate3d(
+      calc(var(--spread) + var(--px, 0px) * var(--depthX, .02)),
+      calc(var(--lift) + var(--py, 0px) * var(--depthY, .012)),
+      var(--depth)
+    )
+    rotateY(-19deg)
+    rotateZ(var(--rot))
+    scale(.985);
+  transform-style: preserve-3d;
+  backdrop-filter: blur(20px) saturate(1.15);
+}
+.screen-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at calc(18% + var(--px, 0px) * .06) calc(16% + var(--py, 0px) * .04), rgba(255,255,255,0.14), transparent 13rem),
+    linear-gradient(100deg, rgba(255,255,255,0.09), transparent 24%, rgba(144,215,255,0.055) 58%, transparent 78%);
+  opacity: .78;
+  transform: translate3d(calc(var(--px, 0px) * -.018), calc(var(--py, 0px) * -.012), 0);
+}
+.screen-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-left: 1px solid rgba(255,255,255,0.16);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(90deg, black, transparent 72%);
+  opacity: .44;
+}
+.screen-edge {
+  position: absolute;
+  left: .62rem;
+  top: 50%;
+  z-index: 3;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: .16em;
+  font-size: clamp(.66rem, .92vw, .84rem);
+  font-weight: 700;
+  color: rgba(245,247,251,0.88);
+  text-transform: uppercase;
+  text-shadow: 0 0 16px rgba(144,215,255,0.18);
+}
+.screen-face {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  align-content: end;
+  padding: clamp(1.3rem, 3vw, 2.35rem) clamp(1.5rem, 3vw, 2.7rem) clamp(1.35rem, 3vw, 2.2rem) clamp(4rem, 6vw, 5.2rem);
+}
+.screen-kicker {
+  font-size: .7rem;
+  letter-spacing: .18em;
+  color: rgba(144,215,255,0.72);
+  text-transform: uppercase;
+  margin-bottom: .65rem;
+}
+.screen-title {
+  font-family: var(--serif);
+  font-size: clamp(1.65rem, 3.2vw, 3.15rem);
+  line-height: .92;
+  letter-spacing: -.047em;
+  color: rgba(245,247,251,0.93);
+  max-width: 11ch;
+}
+.screen-line {
+  display: block;
+  width: min(280px, 42%);
+  height: 1px;
+  margin-top: 1rem;
+  background: linear-gradient(90deg, rgba(144,215,255,.7), transparent);
+}
+body.site-open .screen-card {
+  animation: screenShuffle 1.05s cubic-bezier(.18,.8,.18,1) forwards;
+  animation-delay: calc(.18s + (var(--i) * .085s));
+}
+.screen-card-1  { --i: 0;  z-index: 60; --spread: -246px; --lift: -48px; --rot: -10deg; --depth: 92px;  --depthX: .055; --depthY: .035; }
+.screen-card-2  { --i: 1;  z-index: 59; --spread: -217px; --lift: -42px; --rot: -8.8deg; --depth: 82px; --depthX: .050; --depthY: .032; }
+.screen-card-3  { --i: 2;  z-index: 58; --spread: -188px; --lift: -36px; --rot: -7.6deg; --depth: 72px; --depthX: .046; --depthY: .029; }
+.screen-card-4  { --i: 3;  z-index: 57; --spread: -159px; --lift: -30px; --rot: -6.4deg; --depth: 62px; --depthX: .042; --depthY: .026; }
+.screen-card-5  { --i: 4;  z-index: 56; --spread: -130px; --lift: -24px; --rot: -5.2deg; --depth: 52px; --depthX: .038; --depthY: .023; }
+.screen-card-6  { --i: 5;  z-index: 55; --spread: -101px; --lift: -18px; --rot: -4deg;   --depth: 42px; --depthX: .034; --depthY: .020; }
+.screen-card-7  { --i: 6;  z-index: 54; --spread: -72px;  --lift: -12px; --rot: -2.8deg; --depth: 32px; --depthX: .030; --depthY: .017; }
+.screen-card-8  { --i: 7;  z-index: 53; --spread: -43px;  --lift: -6px;  --rot: -1.6deg; --depth: 22px; --depthX: .026; --depthY: .014; }
+.screen-card-9  { --i: 8;  z-index: 52; --spread: -14px;  --lift: 0px;   --rot: -.4deg;  --depth: 12px; --depthX: .022; --depthY: .011; }
+.screen-card-10 { --i: 9;  z-index: 51; --spread: 15px;   --lift: 6px;   --rot: .8deg;   --depth: 2px;  --depthX: .018; --depthY: .009; }
+.screen-card-11 { --i: 10; z-index: 50; --spread: 44px;   --lift: 12px;  --rot: 2deg;    --depth: -8px; --depthX: .015; --depthY: .007; }
+.screen-card-12 { --i: 11; z-index: 49; --spread: 73px;   --lift: 18px;  --rot: 3.2deg;  --depth: -18px;--depthX: .012; --depthY: .005; }
+.screen-card-13 { --i: 12; z-index: 48; --spread: 102px;  --lift: 24px;  --rot: 4.4deg;  --depth: -28px;--depthX: .009; --depthY: .004; }
+.screen-card-14 { --i: 13; z-index: 47; --spread: 131px;  --lift: 30px;  --rot: 5.6deg;  --depth: -38px;--depthX: .006; --depthY: .003; }
+.screen-card-15 { --i: 14; z-index: 46; --spread: 160px;  --lift: 36px;  --rot: 6.8deg;  --depth: -48px;--depthX: .004; --depthY: .002; }
+.screen-card-16 { --i: 15; z-index: 45; --spread: 189px;  --lift: 42px;  --rot: 8deg;    --depth: -58px;--depthX: .002; --depthY: .001; }
+.screen-card-17 { --i: 16; z-index: 44; --spread: 218px;  --lift: 48px;  --rot: 9.2deg;  --depth: -68px;--depthX: -.002; --depthY: -.001; }
+.screen-card-18 { --i: 17; z-index: 43; --spread: 247px;  --lift: 54px;  --rot: 10.4deg; --depth: -78px;--depthX: -.004; --depthY: -.002; }
+
+@keyframes screenShuffle {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      translate3d(0, 28px, -140px)
+      rotateY(-28deg)
+      rotateZ(0deg)
+      scale(.94);
+  }
+  100% {
+    opacity: 1;
+    transform:
+      translate(-50%, -50%)
+      translate3d(
+        calc(var(--spread) + var(--px, 0px) * var(--depthX, .02)),
+        calc(var(--lift) + var(--py, 0px) * var(--depthY, .012)),
+        var(--depth)
+      )
+      rotateY(-19deg)
+      rotateZ(var(--rot))
+      scale(.985);
+  }
+}
+.screen-card:hover {
+  border-color: rgba(144,215,255,0.55);
+  box-shadow:
+    0 46px 120px rgba(0,0,0,0.55),
+    0 0 50px rgba(144,215,255,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+}
+.screen-card:hover .screen-title,
+.screen-card:hover .screen-edge {
+  color: #fff;
+}
+@media (max-width: 860px) {
+  .screen-parallax-stage {
+    grid-template-columns: 1fr;
+  }
+  .screen-parallax {
+    min-height: 560px;
+  }
+  .screen-card {
+    width: min(430px, 76vw);
+    height: 330px;
+  }
+  .screen-card-1  { --spread: -122px; }
+  .screen-card-2  { --spread: -106px; }
+  .screen-card-3  { --spread: -90px; }
+  .screen-card-4  { --spread: -74px; }
+  .screen-card-5  { --spread: -58px; }
+  .screen-card-6  { --spread: -42px; }
+  .screen-card-7  { --spread: -26px; }
+  .screen-card-8  { --spread: -10px; }
+  .screen-card-9  { --spread: 6px; }
+  .screen-card-10 { --spread: 22px; }
+  .screen-card-11 { --spread: 38px; }
+  .screen-card-12 { --spread: 54px; }
+  .screen-card-13 { --spread: 70px; }
+  .screen-card-14 { --spread: 86px; }
+  .screen-card-15 { --spread: 102px; }
+  .screen-card-16 { --spread: 118px; }
+  .screen-card-17 { --spread: 134px; }
+  .screen-card-18 { --spread: 150px; }
+}
 </style>
 <!-- Single-file preview: CSS, JS, images, and music are embedded. -->
 </head>
@@ -1203,87 +1424,161 @@ body.site-open .page-tab-18 { --x: 385px; --y: 55px; --r: 13.2deg; }
   </header>
 
   <main id="main" tabindex="-1">
-    <section class="page-stack-stage" aria-label="Current Stop Antizionism website pages">
+
+    <section class="page-stack-stage screen-parallax-stage" aria-label="Current Stop Antizionism website pages">
       <div class="stack-copy">
         <p class="eyebrow">Current site structure</p>
         <h1>STOP ANTIZIONISM</h1>
-        <p>After the opening, the site resolves into the current Stop Antizionism page set. Each sliver is a page tab.</p>
+        <p>The site resolves into layered screen pages. Move the cursor and the pages separate by depth.</p>
       </div>
-      <div class="page-stack" role="list">
-        <a class="page-tab page-tab-1" role="listitem" href="#" aria-label="Home">
-          <span class="tab-vertical">HOME</span>
-          <span class="tab-full">Home</span>
+      <div class="screen-parallax" role="list" aria-label="Layered page screens">
+        <a class="screen-card screen-card-1" role="listitem" href="#" aria-label="Home">
+          <span class="screen-edge">HOME</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 01</span>
+            <span class="screen-title">Home</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-2" role="listitem" href="#" aria-label="About">
-          <span class="tab-vertical">ABOUT</span>
-          <span class="tab-full">About</span>
+        <a class="screen-card screen-card-2" role="listitem" href="#" aria-label="About">
+          <span class="screen-edge">ABOUT</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 02</span>
+            <span class="screen-title">About</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-3" role="listitem" href="#" aria-label="Vision Statement">
-          <span class="tab-vertical">VISION</span>
-          <span class="tab-full">Vision Statement</span>
+        <a class="screen-card screen-card-3" role="listitem" href="#" aria-label="Vision Statement">
+          <span class="screen-edge">VISION</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 03</span>
+            <span class="screen-title">Vision Statement</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-4" role="listitem" href="#" aria-label="Team/Partners">
-          <span class="tab-vertical">TEAM</span>
-          <span class="tab-full">Team/Partners</span>
+        <a class="screen-card screen-card-4" role="listitem" href="#" aria-label="Team/Partners">
+          <span class="screen-edge">TEAM</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 04</span>
+            <span class="screen-title">Team/Partners</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-5" role="listitem" href="#" aria-label="Education & Training">
-          <span class="tab-vertical">EDUCATION</span>
-          <span class="tab-full">Education & Training</span>
+        <a class="screen-card screen-card-5" role="listitem" href="#" aria-label="Education & Training">
+          <span class="screen-edge">EDUCATION</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 05</span>
+            <span class="screen-title">Education & Training</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-6" role="listitem" href="#" aria-label="StopAZ Certificate Program">
-          <span class="tab-vertical">CERTIFICATE</span>
-          <span class="tab-full">StopAZ Certificate Program</span>
+        <a class="screen-card screen-card-6" role="listitem" href="#" aria-label="StopAZ Certificate Program">
+          <span class="screen-edge">CERTIFICATE</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 06</span>
+            <span class="screen-title">StopAZ Certificate Program</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-7" role="listitem" href="#" aria-label="Declaration">
-          <span class="tab-vertical">DECLARATION</span>
-          <span class="tab-full">Declaration</span>
+        <a class="screen-card screen-card-7" role="listitem" href="#" aria-label="Declaration">
+          <span class="screen-edge">DECLARATION</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 07</span>
+            <span class="screen-title">Declaration</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-8" role="listitem" href="#" aria-label="Support&Partner">
-          <span class="tab-vertical">SUPPORT</span>
-          <span class="tab-full">Support&Partner</span>
+        <a class="screen-card screen-card-8" role="listitem" href="#" aria-label="Support&Partner">
+          <span class="screen-edge">SUPPORT</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 08</span>
+            <span class="screen-title">Support&Partner</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-9" role="listitem" href="#" aria-label="SocialMedia">
-          <span class="tab-vertical">SOCIAL</span>
-          <span class="tab-full">SocialMedia</span>
+        <a class="screen-card screen-card-9" role="listitem" href="#" aria-label="SocialMedia">
+          <span class="screen-edge">SOCIAL</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 09</span>
+            <span class="screen-title">SocialMedia</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-10" role="listitem" href="#" aria-label="Survey-Background">
-          <span class="tab-vertical">SURVEY</span>
-          <span class="tab-full">Survey-Background</span>
+        <a class="screen-card screen-card-10" role="listitem" href="#" aria-label="Survey-Background">
+          <span class="screen-edge">SURVEY</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 10</span>
+            <span class="screen-title">Survey-Background</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-11" role="listitem" href="#" aria-label="Survey-Thank-You">
-          <span class="tab-vertical">THANK-YOU</span>
-          <span class="tab-full">Survey-Thank-You</span>
+        <a class="screen-card screen-card-11" role="listitem" href="#" aria-label="Survey-Thank-You">
+          <span class="screen-edge">THANK-YOU</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 11</span>
+            <span class="screen-title">Survey-Thank-You</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-12" role="listitem" href="#" aria-label="Marketplace">
-          <span class="tab-vertical">MARKET</span>
-          <span class="tab-full">Marketplace</span>
+        <a class="screen-card screen-card-12" role="listitem" href="#" aria-label="Marketplace">
+          <span class="screen-edge">MARKET</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 12</span>
+            <span class="screen-title">Marketplace</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-13" role="listitem" href="#" aria-label="LEARN">
-          <span class="tab-vertical">LEARN</span>
-          <span class="tab-full">LEARN</span>
+        <a class="screen-card screen-card-13" role="listitem" href="#" aria-label="LEARN">
+          <span class="screen-edge">LEARN</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 13</span>
+            <span class="screen-title">LEARN</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-14" role="listitem" href="#" aria-label="LEAD">
-          <span class="tab-vertical">LEAD</span>
-          <span class="tab-full">LEAD</span>
+        <a class="screen-card screen-card-14" role="listitem" href="#" aria-label="LEAD">
+          <span class="screen-edge">LEAD</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 14</span>
+            <span class="screen-title">LEAD</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-15" role="listitem" href="#" aria-label="ACT">
-          <span class="tab-vertical">ACT</span>
-          <span class="tab-full">ACT</span>
+        <a class="screen-card screen-card-15" role="listitem" href="#" aria-label="ACT">
+          <span class="screen-edge">ACT</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 15</span>
+            <span class="screen-title">ACT</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-16" role="listitem" href="#" aria-label="World Symposium on Antizionism">
-          <span class="tab-vertical">SYMPOSIUM</span>
-          <span class="tab-full">World Symposium on Antizionism</span>
+        <a class="screen-card screen-card-16" role="listitem" href="#" aria-label="World Symposium on Antizionism">
+          <span class="screen-edge">SYMPOSIUM</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 16</span>
+            <span class="screen-title">World Symposium on Antizionism</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-17" role="listitem" href="#" aria-label="Donate">
-          <span class="tab-vertical">DONATE</span>
-          <span class="tab-full">Donate</span>
+        <a class="screen-card screen-card-17" role="listitem" href="#" aria-label="Donate">
+          <span class="screen-edge">DONATE</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 17</span>
+            <span class="screen-title">Donate</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
-        <a class="page-tab page-tab-18" role="listitem" href="#" aria-label="Get Involved">
-          <span class="tab-vertical">INVOLVED</span>
-          <span class="tab-full">Get Involved</span>
+        <a class="screen-card screen-card-18" role="listitem" href="#" aria-label="Get Involved">
+          <span class="screen-edge">INVOLVED</span>
+          <span class="screen-face">
+            <span class="screen-kicker">Page 18</span>
+            <span class="screen-title">Get Involved</span>
+            <span class="screen-line"></span>
+          </span>
         </a>
       </div>
     </section>
+
 
     <section class="hero section-shell">
       <div class="hero-copy">
@@ -1373,71 +1668,7 @@ body.site-open .page-tab-18 { --x: 385px; --y: 55px; --r: 13.2deg; }
       </div>
       <div class="copy-stack">
         <p>Antizionism is presented here as the modern ideological form of Jew-hatred: not ordinary policy criticism, but a worldview that denies Jewish peoplehood, recasts Jewish self-determination as uniquely illegitimate, and turns Israel into the symbolic villain of the present moral order.</p>
-        <p>The declaration function is practical. It gives schools, institutions, civic leaders, faith communities, and public organizations a clear standard for identifying when language has crossed from criticism into collective demonization.</p>
-        <a class="text-link" href="https://www.stopaz.org/declaration">Official declaration page</a>
-      </div>
-    </section>
-
-    <section id="education" class="section-shell">
-      <div class="section-heading compact">
-        <p class="eyebrow">Education</p>
-        <h2>Built for clarity, training, and institutional use.</h2>
-      </div>
-      <div class="gallery-grid">
-        <article class="gallery-card">
-          <span>Learn</span>
-          <h3>Recognize the pattern</h3>
-          <p>Study the historical movement from religious anti-Judaism to racial antisemitism to antizionism.</p>
-        </article>
-        <article class="gallery-card">
-          <span>Lead</span>
-          <h3>Set language standards</h3>
-          <p>Give educators, administrators, and community leaders a shared vocabulary for identifying the modern form.</p>
-        </article>
-        <article class="gallery-card">
-          <span>Act</span>
-          <h3>Respond with precision</h3>
-          <p>Equip communities to answer libels, document incidents, and reject ideological tests imposed on Jews.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="action" class="section-shell action-panel">
-      <div>
-        <p class="eyebrow">Movement</p>
-        <h2>Stop Antizionism</h2>
-        <p>For schools, universities, Jewish communities, interfaith partners, civic institutions, and professional settings that need direct language and a usable educational framework.</p>
-      </div>
-      <div class="action-links">
-        <a class="button primary" href="https://www.stopaz.org/educationtraining">Education & training</a>
-        <a class="button ghost" href="https://www.stopaz.org/certificate-program">Certificate program</a>
-        <a class="button ghost" href="https://www.stopaz.org/events">Events</a>
-        <a class="button ghost" href="mailto:info@stopaz.org">Contact</a>
-      </div>
-    </section>
-
-    <section id="sources" class="section-shell sources-panel">
-      <div>
-        <p class="eyebrow">Source note</p>
-        <h2>Based on public Stop Antizionism materials.</h2>
-      </div>
-      <ol>
-        <li><a href="https://www.stopaz.org/">Stop Antizionism home page and three-era framework</a></li>
-        <li><a href="https://www.stopaz.org/declaration">Declaration: Antizionism Is Jew-Hatred</a></li>
-        <li><a href="https://www.stopaz.org/educationtraining">Education & Training</a></li>
-        <li><a href="https://www.stopaz.org/certificate-program">Certificate Program</a></li>
-        <li><a href="https://www.stopaz.org/events">Events / World Symposium Against Antizionism</a></li>
-        <li><a href="https://www.stopaz.org/about">About Stop Antizionism</a></li>
-      </ol>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>Stop Antizionism concept site. Built as a static GitHub Pages prototype.</p>
-    <button id="replayIntro" type="button">Replay opening</button>
-  </footer>
-
-  <script>
+        <p>The declaration function is practical. It gives schools, institutions, civic leaders, faith communities, and public organizations a clear standard
 (function () {
   const intro = document.getElementById('intro');
   const enterSite = document.getElementById('enterSite');
@@ -1568,6 +1799,93 @@ body.site-open .page-tab-18 { --x: 385px; --y: 55px; --r: 13.2deg; }
 
   function replay() {
     if (!intro) return;
+    window.clearTimeout(readyTimer);
+    window.clearTimeout(finalTimer);
+    if (animationFrame) window.cancelAnimationFrame(animationFrame);
+    intro.classList.remove('closed', 'ready', 'zooming');
+    document.body.classList.remove('site-open');
+    pointerActive = false;
+    intro.style.setProperty('--cursor-window-opacity', '0');
+    pointer.x = viewport.width * 0.72;
+    pointer.y = viewport.height * 0.54;
+    trail = Array.from({ length: 11 }, (_, i) => ({ x: pointer.x - i * 12, y: pointer.y + Math.sin(i * 0.45) * 3 }));
+    void intro.offsetWidth;
+    readyTimer = window.setTimeout(setIntroReady, 9800);
+    animationFrame = window.requestAnimationFrame(updateLiquidReveal);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  readyTimer = window.setTimeout(setIntroReady, 9800);
+
+  function startMusicFromMovement() {
+    if (musicStarted) {
+      document.removeEventListener('pointermove', startMusicFromMovement);
+      document.removeEventListener('mousemove', startMusicFromMovement);
+      return;
+    }
+    startMusic();
+  }
+
+  document.addEventListener('pointerdown', startMusic, { once: true, passive: true });
+  document.addEventListener('click', startMusic, { once: true, passive: true });
+  document.addEventListener('keydown', startMusic, { once: true });
+  document.addEventListener('pointermove', startMusicFromMovement, { passive: true });
+  document.addEventListener('mousemove', startMusicFromMovement, { passive: true });
+  if (musicToggle) musicToggle.addEventListener('click', toggleMusic);
+
+  document.addEventListener('pointermove', updatePointerLight, { passive: true });
+  if (intro) {
+    intro.addEventListener('pointerleave', () => {
+      pointerActive = false;
+      intro.style.setProperty('--cursor-window-opacity', '0');
+    });
+    intro.addEventListener('pointerenter', () => {
+      intro.style.setProperty('--cursor-window-opacity', pointerActive ? '1' : '0');
+    });
+  }
+  window.addEventListener('resize', resizeViewport, { passive: true });
+  resizeViewport();
+  animationFrame = window.requestAnimationFrame(updateLiquidReveal);
+
+  if (enterSite) enterSite.addEventListener('click', openSite);
+  if (skipIntro) skipIntro.addEventListener('click', openSite);
+  if (replayIntro) replayIntro.addEventListener('click', replay);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && intro && intro.classList.contains('ready') && !intro.classList.contains('closed')) {
+      openSite();
+    }
+    if (event.key === 'Escape' && intro && !intro.classList.contains('closed')) {
+      openSite();
+    }
+  });
+
+  if (menuButton && siteNav) {
+    menuButton.addEventListener('click', () => {
+      const isOpen = siteNav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    siteNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  function updatePageParallax(event) {
+    const x = (event.clientX / window.innerWidth - 0.5) * 100;
+    const y = (event.clientY / window.innerHeight - 0.5) * 100;
+    document.documentElement.style.setProperty('--px', `${x.toFixed(2)}px`);
+    document.documentElement.style.setProperty('--py', `${y.toFixed(2)}px`);
+  }
+  document.addEventListener('pointermove', updatePageParallax, { passive: true });
+  document.addEventListener('mousemove', updatePageParallax, { passive: true });
+
+})();
+
+f (!intro) return;
     window.clearTimeout(readyTimer);
     window.clearTimeout(finalTimer);
     if (animationFrame) window.cancelAnimationFrame(animationFrame);
