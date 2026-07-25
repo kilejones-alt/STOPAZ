@@ -1,44 +1,24 @@
-# Stop Antizionism GitHub Pages Prototype
+# STOPAZ Full Site — Final Institutional Build
 
-Static files only. Upload these files to the same place as the other GitHub Pages site files:
+Complete static deployment package for GitHub Pages. The build contains all 13 approved pages, the shared stylesheet and script, the supplied image assets, and the Exhibition music file. It uses only HTML, CSS, and vanilla JavaScript.
 
-- index.html
-- style.css
-- app.js
-- sources.html
-- README.md
+## Deploy to GitHub Pages
 
-Design direction:
+1. Upload the complete contents of this folder to the repository root. Keep the `assets` folder intact.
+2. Commit the files to the branch used for GitHub Pages, normally `main`.
+3. In **Repository Settings → Pages**, select **Deploy from a branch**, choose the deployment branch and the root folder, then save.
+4. After deployment, open the published site and confirm that `index.html`, `about.html`, `exhibition.html`, the Antizionism room, the shared stylesheet, and every file in the `assets` folder load from the final Pages URL.
 
-- Dark cinematic opening
-- JEW-HATRED appears first
-- AntiJudaism, Antisemitism, Antizionism appear one by one
-- Camera emphasis moves into Antizionism
-- STOP assembles above Antizionism
-- Final STOP / ANTIZIONISM stack is the site entrance
-
-No external libraries. No build step. No stock imagery.
+The included `.nojekyll` file tells GitHub Pages to publish the static files directly without Jekyll processing.
 
 
-Version note: v4 separates the cursor-reactive liquid background from the three-era boxes. The effect is abstract only; the conceptual chart remains clean above it.
+## Included production features
 
+- Responsive institutional navigation with four desktop destinations
+- Exhibition entrance transition and reduced-motion fallback
+- Keyboard, pointer, and touch gallery controls
+- Persistent Exhibition music preference and playback position
+- Image-loading fades with error fallback
+- Open Graph, Twitter card, favicon, and Apple touch icon metadata
 
-Version note: v5 slows the opening sequence, recenters the final STOP / ANTIZIONISM title, and changes the cursor effect from abstract texture to a true window revealing a page underneath.
-
-
-Version note: v6 uses the uploaded Soviet anti-Zionist propaganda images as the hidden under-page. They only appear through the cursor window/reveal on hover.
-
-
-Version note: v8 uses the current public Stop Antizionism navigation labels from stopaz.org for the after-enter page stack. It also tightens the cursor reveal so the Soviet propaganda layer appears only directly under the hover area.
-
-
-Version note: v9 adds the uploaded Tchaikovsky MIDI as site music, converted to MP3 for browser playback. Because browsers block sound before interaction, playback starts on first click/keypress and on ENTER, with a small Music control.
-
-
-Version note: v10 attempts to start music on first cursor movement, first click/tap, first keypress, and ENTER. Browser autoplay rules may still require a click, but movement is now wired as a playback trigger.
-
-
-Version note: v11 adds the actual two-phase intro behavior: after the three boxes appear, the camera state zooms into ANTIZIONISM first, then STOP / ANTIZIONISM appears. It also tightens the hover reveal so Soviet propaganda is visible only under the cursor area.
-
-
-Version note: v15 fixes the broken v14 single-file build by restoring valid separate index/style/app files and a valid single-file preview. It keeps the bigger water reveal and artsy parallax screen layers.
+Analytics, donation processing, partner logos, leadership portraits, and a custom domain are not fabricated in this package; those require approved service IDs, URLs, and image files.
