@@ -1,24 +1,22 @@
-# STOPAZ Full Site — Final Institutional Build
+# STOPAZ static website
 
-Complete static deployment package for GitHub Pages. The build contains all 13 approved pages, the shared stylesheet and script, the supplied image assets, and the Exhibition music file. It uses only HTML, CSS, and vanilla JavaScript.
+Professional static website for GitHub Pages.
 
-## Deploy to GitHub Pages
+## Primary pages
+- `index.html` — homepage
+- `about.html` — mission and framework
+- `research.html` — research and analysis
+- `education.html` — education overview
+- `educationtraining.html` — institutional programs
+- `certificate-program.html` — certificate tracks and enrollment
+- `declaration.html` — Global Declaration
+- `team.html` — leadership
+- `partners.html` — partnership process
+- `events.html` — events
+- `symposium.html` — World Symposium
+- `support.html` — funding priorities
+- `donate-1.html` — official donation route
 
-1. Upload the complete contents of this folder to the repository root. Keep the `assets` folder intact.
-2. Commit the files to the branch used for GitHub Pages, normally `main`.
-3. In **Repository Settings → Pages**, select **Deploy from a branch**, choose the deployment branch and the root folder, then save.
-4. After deployment, open the published site and confirm that `index.html`, `about.html`, `exhibition.html`, the Antizionism room, the shared stylesheet, and every file in the `assets` folder load from the final Pages URL.
+The Exhibition is maintained separately and is linked at `https://stopaz.org/exhibition`. It is not duplicated in this repository.
 
-The included `.nojekyll` file tells GitHub Pages to publish the static files directly without Jekyll processing.
-
-
-## Included production features
-
-- Responsive institutional navigation with four desktop destinations
-- Exhibition entrance transition and reduced-motion fallback
-- Keyboard, pointer, and touch gallery controls
-- Persistent Exhibition music preference and playback position
-- Image-loading fades with error fallback
-- Open Graph, Twitter card, favicon, and Apple touch icon metadata
-
-Analytics, donation processing, partner logos, leadership portraits, and a custom domain are not fabricated in this package; those require approved service IDs, URLs, and image files.
+All files remain at the repository root for GitHub Pages.
