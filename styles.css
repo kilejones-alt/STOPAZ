@@ -719,10 +719,8 @@ body.home .hero-video{
   pointer-events:none;
 }
 body.home .home-hero::before{
-  background-image:url('homepage-torah-poster.webp');
-  background-position:center center;
-  background-size:cover;
-  opacity:.26;
+  background-image:none;
+  opacity:0;
   filter:none;
   transform:none;
 }
@@ -740,4 +738,10 @@ body.home .home-hero::after{
 }
 @media (prefers-reduced-motion:reduce){
   body.home .hero-video{display:none}
+  body.home .home-hero::before{
+    background-image:url('homepage-torah-poster.webp');
+    background-position:center center;
+    background-size:cover;
+    opacity:.26;
+  }
 }
